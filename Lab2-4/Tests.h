@@ -15,5 +15,7 @@ void test_find_repo();
 void test_service_add();
 void test_service_remove();
 void test_service_edit();
+void test_service_getall_litera();
+void test_service_getall_cantitate();
 
 #endif

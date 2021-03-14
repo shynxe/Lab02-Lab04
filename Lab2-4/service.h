@@ -44,7 +44,7 @@ int service_remove_ingredient(Service* service, char* name);
 
 /*
 Service de modificare ingredient din Repository
-service - referinta la self
+service - referinta la self (!= null)
 name - numele ingredientului de modificat
 new_name - numele nou
 new_prod - producator nou
@@ -54,5 +54,21 @@ return: 0 - eroare, service null sau nu a fost gasit ingredientul
 */
 int service_modifica_ingredient(Service* service, char* name, char* new_name, char* new_prod, unsigned int new_cantitate);
 
+/*
+Service de get ingrediente din Repository cu litera de inceput data
+service - referinta la self (!= null)
+litera - char (litera cu care sa inceapa)
+return: Vector* cu toate ingredientele ce satisfac criteriul cu litera
+*/
+Vector* service_getall_litera(Service* service, char litera);
+
+
+/*
+Service de get ingrediente din Repository cu cantitate mai mica decat cea data
+service - referinta la self (!= null)
+cantitate - unsigned int - cantitatea maxima cautata
+return: Vector* cu toate ingredientele ce satisfac criteriul cu cantitate
+*/
+Vector* service_getall_cantitate(Service* service, unsigned int cantitate);
 
 #endif

@@ -23,7 +23,7 @@ int vector_size(Vector* vector) {
 
 void vector_remove(Vector* vector, int poz) {
 	if (poz >= vector->size || poz < 0) {
-		printf("Se incearca accesarea unei pozitii in afara vectorului.");
+		printf("Se incearca accesarea unei pozitii in afara vectorului la stergerea unui element.\n");
 		return;
 	}
 	int i;
@@ -31,6 +31,18 @@ void vector_remove(Vector* vector, int poz) {
 		vector->elements[i] = vector->elements[i + 1];
 	vector->size--;
 	vector->elements = realloc(vector->elements, vector->size * sizeof(void*));
+}
+
+int vector_swap(Vector* vector, int poz1, int poz2)
+{
+	if (poz1 >= vector->size || poz1 < 0 || poz2 >= vector->size || poz2 < 0) {
+		printf("Se incearca accesarea unei pozitii in afara vectorului la interschimbarea a doua elemente.\n");
+		return 0;
+	}
+	void* aux = vector->elements[poz1];
+	vector->elements[poz1] = vector->elements[poz2];
+	vector->elements[poz2] = aux;
+	return 1;
 }
 
 void* vector_at(Vector* vector, int poz) {

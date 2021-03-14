@@ -8,6 +8,8 @@ void print_menu() {
 	printf("1. Adauga ingredient\n");
 	printf("2. Sterge ingredient\n");
 	printf("3. Modifica ingredient\n");
+	printf("4. Vizualizare materii prime care satisfac un criteriu\n");
+	printf("5. Vizualizare materii prime din stoc ordonat dupa un criteriu\n");
 	printf("0. Exit\n");
 	printf("Introduceti comanda: ");
 }
@@ -90,16 +92,63 @@ void run_console(Console* console) {
 				printf("Modificarea a fost realizata cu succes!\n");
 			break;
 		}
-		case 42:
+		case 4:
 		{
-			int i;
-			for (i = 0; i < repo_size(console->service->repo); i++)
+			int suboptiune;
+			printf("-----\n1.Nume incepe cu o anumita litera data\n2.Cantitate disponibila este mai mica decat un numar dat\n: ");
+			scanf("%d", &suboptiune);
+			switch (suboptiune) {
+			case 1:
 			{
-				Ingredient* curent_iterat = vector_at(console->service->repo->lista_ingrediente, i);
-				printf("%s, %s, %u\n", ingredient_get_nume(curent_iterat), ingredient_get_producator(curent_iterat), ingredient_get_cantitate(curent_iterat));
+				char litera;
+				printf("Introduceti litera: ");
+				scanf(" %c", &litera);
+				Vector* lista_rezultat = service_getall_litera(console->service, litera);
+				int iterator;
+				for (iterator = 0; iterator < vector_size(lista_rezultat); iterator++)
+					printf("%s, %s, %u\n", ingredient_get_nume(vector_at(lista_rezultat, iterator)), ingredient_get_producator(vector_at(lista_rezultat, iterator)), ingredient_get_cantitate(vector_at(lista_rezultat, iterator)));
+				vector_destroy(lista_rezultat);
+				free(lista_rezultat);
+				break;
+			}
+			case 2:
+			{
+				int cantitate;
+				printf("Introduceti cantitatea: ");
+				scanf("%d", &cantitate);
+				if (cantitate < 0) {
+					printf("Eroare: Cantitatea trebuie sa fie un numar pozitiv!\n");
+					break;
+				}
+				Vector* lista_rezultat = service_getall_cantitate(console->service, (unsigned int)cantitate);
+				int iterator;
+				for (iterator = 0; iterator < vector_size(lista_rezultat); iterator++)
+					printf("%s, %s, %u\n", ingredient_get_nume(vector_at(lista_rezultat, iterator)), ingredient_get_producator(vector_at(lista_rezultat, iterator)), ingredient_get_cantitate(vector_at(lista_rezultat, iterator)));
+				vector_destroy(lista_rezultat);
+				free(lista_rezultat);
+				break;
+			}
+			default:
+				printf("Nu exista criteriul!\n");
 			}
 			break;
 		}
+		case 42:
+		{
+			int i;
+			printf("\n42. DEBUGGING: ");
+			if (repo_size(console->service->repo) == 0)
+				printf("Repository gol.");
+			for (i = 0; i < repo_size(console->service->repo); i++)
+			{
+				Ingredient* curent_iterat = vector_at(console->service->repo->lista_ingrediente, i);
+				printf("\n%s, %s, %u", ingredient_get_nume(curent_iterat), ingredient_get_producator(curent_iterat), ingredient_get_cantitate(curent_iterat));
+			}
+			printf("\n");
+			break;
+		}
+		default:
+			printf("Nu exista comanda!\n");
 		}
 		printf("\n");
 	}

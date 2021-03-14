@@ -1,6 +1,7 @@
 #include "ingrediente_repo.h"
 #include <malloc.h>
 
+
 void repo_init(RepoIngrediente* repo) {
 	repo->lista_ingrediente = malloc(sizeof(Vector));
 	vector_init(repo->lista_ingrediente);
@@ -94,3 +95,4 @@ Ingredient* repo_find_ingredient(RepoIngrediente* repo, char* name)
 	}
 	return 0;
 }
+

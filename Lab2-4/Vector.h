@@ -39,7 +39,7 @@ int vector_size(Vector* vector);
 Functie de obtinere a dimensiunii repositoryului
 vector - referinta la self ( vector != null )
 poz - pozitia accesarii ( poz > 0 && poz < vector->size )
-return: int size_t, dimensiunea vectorului (POST: size_t >= 0)
+return: void* - elementul cerut de pe pozitia data
 */
 void* vector_at(Vector* vector, int poz);
 
@@ -47,8 +47,18 @@ void* vector_at(Vector* vector, int poz);
 Functie de obtinere a dimensiunii repositoryului
 vector - referinta la self ( vector != null )
 poz - pozitia accesarii ( poz > 0 && poz < vector->size )
-return: int size_t, dimensiunea vectorului (POST: size_t >= 0)
+return: void
 */
 void vector_remove(Vector* vector, int poz);
+
+/*
+Functie de interschimb a doua elemente in vector
+vector - referinta la self ( vector != null )
+poz1 - pozitia primului element ( poz1 > 0 && poz1 < vector->size )
+poz2 - pozitia al doilea element ( poz2 > 0 && poz2 < vector->size )
+return: 0 - daca elementele nu au putut fi schimbate ( nu s-au respectat preconditiile )
+		1 - daca elementele au fost interschimbate
+*/
+int vector_swap(Vector* vector, int poz1, int poz2);
 
 #endif
