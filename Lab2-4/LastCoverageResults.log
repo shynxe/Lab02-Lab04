@@ -1,0 +1,21 @@
+[2021-03-08 08:21:25] [info] Start Program:
+Path:"C:\\Users\\Armand\\source\\repos\\Lab01\\Debug\\Lab2-4.exe"
+Arguments:
+Working directory: "C:\\Users\\Armand\\source\\repos\\Lab01\\Lab2-4\\"
+Modules: Selected: C:\Users\Armand\source\repos\Lab01\Debug\Lab2-4.exe Excluded: 
+Sources: Selected: C:\Users\Armand\source\repos\Lab01\Lab2-4 Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\Armand\AppData\Local\Temp\liok5rso.4eb 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2021-03-08 08:21:25] [info] Module: C:\Users\Armand\source\repos\Lab01\Debug\Lab2-4.exe is selected because it matches selected pattern: C:\Users\Armand\source\repos\Lab01\Debug\Lab2-4.exe
+[2021-03-08 08:21:25] [info] ----------------------------------------------------
+[2021-03-08 08:21:25] [info] Coverage binary generated in file: C:\Users\Armand\AppData\Local\Temp\liok5rso.4eb
+[2021-03-08 08:21:25] [info] ----------------------------------------------------

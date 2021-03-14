@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{21dd0cc3-62ed-403f-9d5f-0cfab36f649e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{7d4c8392-7055-45b7-af2d-c28eef5d5eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Repository">
+      <UniqueIdentifier>{be413ee3-4192-425c-a655-63818a953049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Domain">
+      <UniqueIdentifier>{89fd59f5-0759-4218-9940-a68efdba0764}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{ee06a30f-e65d-4d8b-a23d-a5beed5eb05f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tests">
+      <UniqueIdentifier>{cd011cbf-07b7-4b34-9302-e6abe3aab27f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ingrediente_repo.c">
+      <Filter>Source Files\Repository</Filter>
+    </ClCompile>
+    <ClCompile Include="ingredient.c">
+      <Filter>Source Files\Domain</Filter>
+    </ClCompile>
+    <ClCompile Include="console.c">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.c">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Tests.c">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="service.c">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ingrediente_repo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ingredient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="service.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
