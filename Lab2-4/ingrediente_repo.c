@@ -1,4 +1,5 @@
 #include "ingrediente_repo.h"
+#include <malloc.h>
 
 void repo_init(RepoIngrediente* repo) {
 	repo->lista_ingrediente = malloc(sizeof(Vector));
@@ -7,8 +8,10 @@ void repo_init(RepoIngrediente* repo) {
 
 void repo_destroy(RepoIngrediente* repo) {
 	int i;
-	for (i = 0; i < vector_size(repo->lista_ingrediente); i++)
+	for (i = 0; i < vector_size(repo->lista_ingrediente); i++) {
 		ingredient_destroy(vector_at(repo->lista_ingrediente, i));
+		free(vector_at(repo->lista_ingrediente, i));
+	}
 	vector_destroy(repo->lista_ingrediente);
 	free(repo->lista_ingrediente);
 }
@@ -30,6 +33,8 @@ int repo_add_ingredient(RepoIngrediente* repo, Ingredient* ingredient)
 	Ingredient* exists = repo_find_ingredient(repo, ingredient_get_nume(ingredient));
 	if (exists) {
 		ingredient_inc_quantity(exists, ingredient->cantitate);
+		ingredient_destroy(ingredient);
+		free(ingredient);
 		return 2;
 	}
 	vector_pushback(repo->lista_ingrediente, ingredient);
@@ -45,6 +50,9 @@ int repo_remove_ingredient(RepoIngrediente* repo, char* name)
 	int i;
 	for (i = 0; i < repo_size(repo); i++) {
 		if (strcmp(ingredient_get_nume(vector_at(repo->lista_ingrediente, i)), name) == 0) {
+			Ingredient* ingred_de_sters = vector_at(repo->lista_ingrediente, i);
+			ingredient_destroy(ingred_de_sters);
+			free(ingred_de_sters);
 			vector_remove(repo->lista_ingrediente, i);
 			return 1;
 		}

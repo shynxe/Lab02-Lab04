@@ -1,1 +1,4 @@
-﻿  Lab2-4.vcxproj -> C:\Users\Armand\source\repos\Lab01\Debug\Lab2-4.exe
+﻿  ingrediente_repo.c
+C:\Users\Armand\source\repos\Lab01\Lab2-4\ingrediente_repo.c(26,9): warning C4013: 'printf' undefined; assuming extern returning int
+C:\Users\Armand\source\repos\Lab01\Lab2-4\ingrediente_repo.c(52,13): warning C4013: 'strcmp' undefined; assuming extern returning int
+  Lab2-4.vcxproj -> C:\Users\Armand\source\repos\Lab01\Debug\Lab2-4.exe
