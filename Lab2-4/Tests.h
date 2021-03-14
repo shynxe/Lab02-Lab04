@@ -4,6 +4,7 @@
 void tests_run();
 
 void test_vector();
+void test_vector_sort();
 
 void test_ingrediente();
 
@@ -17,5 +18,8 @@ void test_service_remove();
 void test_service_edit();
 void test_service_getall_litera();
 void test_service_getall_cantitate();
+
+void test_service_sort_nume();
+void test_service_sort_cantitate();
 
 #endif

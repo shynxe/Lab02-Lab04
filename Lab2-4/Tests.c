@@ -6,9 +6,11 @@
 #include "ingrediente_repo.h"
 #include "service.h"
 #include "Vector.h"
+#include "Utils.h"
 
 void tests_run() {
 	test_vector();
+	test_vector_sort();
 
 	test_ingrediente();
 
@@ -22,6 +24,8 @@ void tests_run() {
 	test_service_edit();
 	test_service_getall_litera();
 	test_service_getall_cantitate();
+	test_service_sort_nume();
+	test_service_sort_cantitate();
 }
 
 void test_vector() {
@@ -47,6 +51,25 @@ void test_vector() {
 	assert(vector_at(v, 1) == &b);
 	vector_destroy(v);
 	free(v);
+}
+
+void test_vector_sort()
+{
+	Vector* vector = (Vector*)malloc(sizeof(Vector));;
+	vector_init(vector);
+	int a = 5;
+	int b = 2;
+	vector_pushback(vector, &a);
+	vector_pushback(vector, &b);
+	vector_sort(0, compare_int, 0);
+	vector_sort(vector, compare_int, 0);
+	assert(vector_at(vector, 0) == &b);
+	assert(vector_at(vector, 1) == &a);
+	vector_sort(vector, compare_int, 1);
+	assert(vector_at(vector, 0) == &a);
+	assert(vector_at(vector, 1) == &b);
+	vector_destroy(vector);
+	free(vector);
 }
 
 void test_ingrediente() {
@@ -164,6 +187,7 @@ void test_service_edit() {
 	service_add_ingredient(service, "test", "prod", 20);
 	int res = service_modifica_ingredient(service, "test", "nou test", "nou prod", 30);
 	assert(!service_modifica_ingredient(service, "test_inexistent", "nou test", "nou prod", 30));
+	assert(!service_modifica_ingredient(0, "test", "test", "test", 30));
 	assert(!repo_find_ingredient(service->repo, "test"));
 	assert(repo_find_ingredient(service->repo, "nou test"));
 	service_destroy(service);
@@ -214,4 +238,48 @@ void test_service_getall_cantitate() {
 	free(service);
 	free(repo);
 
+}
+
+void test_service_sort_nume() {
+	Service* service = malloc(sizeof(Service));
+	RepoIngrediente* repo = malloc(sizeof(RepoIngrediente));
+	service_init(service, repo);
+	service_add_ingredient(service, "ingred1", "prod", 13);
+	service_add_ingredient(service, "zagreb3", "prod", 5);
+	service_add_ingredient(service, "ingred2", "prod", 24);
+
+	assert(!service_sort_nume(0, 1));
+	Vector* lista_sortata = service_sort_nume(service, 1);
+	assert(ingredient_get_cantitate(vector_at(lista_sortata, 0)) == 5);
+	assert(ingredient_get_cantitate(vector_at(lista_sortata, 1)) == 24);
+	assert(ingredient_get_cantitate(vector_at(lista_sortata, 2)) == 13);
+
+
+	vector_destroy(lista_sortata);
+	free(lista_sortata);
+	service_destroy(service);
+	free(service);
+	free(repo);
+}
+
+void test_service_sort_cantitate() {
+	Service* service = malloc(sizeof(Service));
+	RepoIngrediente* repo = malloc(sizeof(RepoIngrediente));
+	service_init(service, repo);
+	service_add_ingredient(service, "ingred1", "prod", 13);
+	service_add_ingredient(service, "zagreb3", "prod", 5);
+	service_add_ingredient(service, "ingred2", "prod", 24);
+
+	Vector* lista_sortata = service_sort_cantitate(service, 0);
+	assert(!service_sort_cantitate(0, 0));
+	assert(ingredient_get_cantitate(vector_at(lista_sortata, 0)) == 5);
+	assert(ingredient_get_cantitate(vector_at(lista_sortata, 1)) == 13);
+	assert(ingredient_get_cantitate(vector_at(lista_sortata, 2)) == 24);
+
+
+	vector_destroy(lista_sortata);
+	free(lista_sortata);
+	service_destroy(service);
+	free(service);
+	free(repo);
 }

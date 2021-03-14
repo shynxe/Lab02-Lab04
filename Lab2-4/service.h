@@ -71,4 +71,22 @@ return: Vector* cu toate ingredientele ce satisfac criteriul cu cantitate
 */
 Vector* service_getall_cantitate(Service* service, unsigned int cantitate);
 
+/*
+Service de sort Repository dupa nume
+service - referinta la self (!= null)
+invers - daca se doreste sortarea crescatoare sa fie 0, altfel descrescatoare 1
+return: Vector* cu toate ingredientele sortate dupa nume
+*/
+Vector* service_sort_nume(Service* service, int invers);
+
+/*
+Service de sort Repository dupa cantitate
+service - referinta la self (!= null)
+return: Vector* cu toate ingredientele sortate dupa cantitate
+*/
+Vector* service_sort_cantitate(Service* service, int invers);
+
+int service_sort_nume_util(Ingredient* a, Ingredient* b);
+
+int service_sort_cantitate_util(Ingredient* a, Ingredient* b);
 #endif

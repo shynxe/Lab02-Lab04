@@ -144,6 +144,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="service.c" />
     <ClCompile Include="Tests.c" />
+    <ClCompile Include="Utils.c" />
     <ClCompile Include="Vector.c" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="ingrediente_repo.h" />
     <ClInclude Include="service.h" />
     <ClInclude Include="Tests.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

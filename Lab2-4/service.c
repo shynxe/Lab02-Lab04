@@ -82,3 +82,55 @@ Vector* service_getall_cantitate(Service* service, unsigned int cantitate)  {
 	}
 	return lista_ingrediente_cantitate;
 }
+
+Vector* service_sort_nume(Service* service, int invers)
+{
+	if (!service)
+	{
+		printf("Parametru service null la apelul functiei de getall_cantitate in Service.\n");
+		return 0;
+	}
+	// creez copie shallow a repoului
+	Vector* shallow_copy_repo = (Vector*)malloc(sizeof(Vector));
+	vector_init(shallow_copy_repo);
+	int i;
+	for (i = 0; i < repo_size(service->repo); i++)
+		vector_pushback(shallow_copy_repo, vector_at(service->repo->lista_ingrediente,i));
+
+	// sortam copia shallow
+	vector_sort(shallow_copy_repo, service_sort_nume_util, invers);
+
+	// returnam copia shallow
+	return shallow_copy_repo;
+}
+
+Vector* service_sort_cantitate(Service* service, int invers)
+{
+	if (!service)
+	{
+		printf("Parametru service null la apelul functiei de getall_cantitate in Service.\n");
+		return 0;
+	}
+	// creez copie shallow a repoului
+	Vector* shallow_copy_repo = (Vector*)malloc(sizeof(Vector));
+	vector_init(shallow_copy_repo);
+	int i;
+	for (i = 0; i < repo_size(service->repo); i++)
+		vector_pushback(shallow_copy_repo, vector_at(service->repo->lista_ingrediente, i));
+
+	// sortam copia shallow
+	vector_sort(shallow_copy_repo, service_sort_cantitate_util, invers);
+
+	// returnam copia shallow
+	return shallow_copy_repo;
+}
+
+int service_sort_nume_util(Ingredient* a, Ingredient* b) {
+	if (strcmp(a->nume, b->nume) < 0) return 1;
+	else return 0;
+}
+
+int service_sort_cantitate_util(Ingredient* a, Ingredient* b) {
+	if (a->cantitate < b->cantitate) return 1;
+	else return 0;
+}

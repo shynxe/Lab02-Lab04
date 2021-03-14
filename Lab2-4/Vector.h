@@ -61,4 +61,13 @@ return: 0 - daca elementele nu au putut fi schimbate ( nu s-au respectat precond
 */
 int vector_swap(Vector* vector, int poz1, int poz2);
 
+/*
+Implementare a bubble sortului in vector cu functie generica de comparare
+vector - referinta la self ( vector != null )
+compareFunc - functie generica ce evalueaza o expresie simpla( compare_string / uint din UTILS )
+invers - daca se doreste inversarea expresiei anterioare
+return: void;
+*/
+void vector_sort(Vector* vector, int (*compareFunc)(void* a, void* b), int invers);
+
 #endif

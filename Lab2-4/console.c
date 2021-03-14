@@ -133,6 +133,55 @@ void run_console(Console* console) {
 			}
 			break;
 		}
+		case 5:
+		{
+			int suboptiune;
+			printf("-----\n1.Sortare dupa nume\n2.Sortare dupa cantitate\n: ");
+			scanf("%d", &suboptiune);
+			switch (suboptiune) {
+			case 1:
+			{
+				int invers;
+				printf("---\n1.Sortare dupa nume crescator\n2.Sortare dupa nume descrescator\n:");
+				scanf("%d", &invers);
+				if (invers == 1) invers = 0;
+				else if (invers == 2) invers = 1;
+				else {
+					printf("Sunt doar 2 optiuni :/\n");
+					break;
+				}
+				Vector* lista_rezultat = service_sort_nume(console->service, invers);
+				int iterator;
+				for (iterator = 0; iterator < vector_size(lista_rezultat); iterator++)
+					printf("%s, %s, %u\n", ingredient_get_nume(vector_at(lista_rezultat, iterator)), ingredient_get_producator(vector_at(lista_rezultat, iterator)), ingredient_get_cantitate(vector_at(lista_rezultat, iterator)));
+				vector_destroy(lista_rezultat);
+				free(lista_rezultat);
+				break;
+			}
+			case 2:
+			{
+				int invers;
+				printf("---\n1.Sortare dupa cantitate crescatoare\n2.Sortare dupa cantitate descrescatoare\n:");
+				scanf("%d", &invers);
+				if (invers == 1) invers = 0;
+				else if (invers == 2) invers = 1;
+				else {
+					printf("Sunt doar 2 optiuni :/\n");
+					break;
+				}
+				Vector* lista_rezultat = service_sort_cantitate(console->service, invers);
+				int iterator;
+				for (iterator = 0; iterator < vector_size(lista_rezultat); iterator++)
+					printf("%s, %s, %u\n", ingredient_get_nume(vector_at(lista_rezultat, iterator)), ingredient_get_producator(vector_at(lista_rezultat, iterator)), ingredient_get_cantitate(vector_at(lista_rezultat, iterator)));
+				vector_destroy(lista_rezultat);
+				free(lista_rezultat);
+				break;
+			}
+			default:
+				printf("Nu exista criteriul!\n");
+			}
+			break;
+		}
 		case 42:
 		{
 			int i;

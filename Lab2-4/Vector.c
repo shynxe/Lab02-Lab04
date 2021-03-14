@@ -45,6 +45,26 @@ int vector_swap(Vector* vector, int poz1, int poz2)
 	return 1;
 }
 
+void vector_sort(Vector* vector, int(*compareFunc)(void* a, void* b), int invers)
+{
+	if (!vector) {
+		printf("Eroare: vector null la bubble_sort\n");
+		return 0;
+	}
+	if (vector_size(vector) < 2)
+		return;
+	int sortat = 0;
+	while (!sortat) {
+		sortat = 1;
+		int i;
+		for (i = 1; i < vector->size; i++)
+			if ((!compareFunc(vector->elements[i - 1], vector->elements[i]) && !invers) ||  (compareFunc(vector->elements[i-1], vector->elements[i]) && invers)){
+				vector_swap(vector, i - 1, i);
+				sortat = 0;
+			}
+	}
+}
+
 void* vector_at(Vector* vector, int poz) {
 	return vector->elements[poz];
 }
