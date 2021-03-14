@@ -1,6 +1,6 @@
 # Lab2-4
  
-##6. Cofetarie
+## 6. Cofetarie
 
 Creati o aplicatie care permite gestiunea stocului de materii prime folosite intr-o cofetarie.
 
