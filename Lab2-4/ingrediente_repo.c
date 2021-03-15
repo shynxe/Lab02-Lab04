@@ -1,6 +1,7 @@
 #include "ingrediente_repo.h"
 #include <malloc.h>
-
+#include <stdio.h>
+#include <string.h>
 
 void repo_init(RepoIngrediente* repo) {
 	repo->lista_ingrediente = malloc(sizeof(Vector));

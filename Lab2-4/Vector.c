@@ -1,4 +1,6 @@
 #include "Vector.h"
+#include <malloc.h>
+#include <stdio.h>
 
 void vector_init(Vector* vector)
 {
@@ -47,10 +49,6 @@ int vector_swap(Vector* vector, int poz1, int poz2)
 
 void vector_sort(Vector* vector, int(*compareFunc)(void* a, void* b), int invers)
 {
-	if (!vector) {
-		printf("Eroare: vector null la bubble_sort\n");
-		return 0;
-	}
 	if (vector_size(vector) < 2)
 		return;
 	int sortat = 0;

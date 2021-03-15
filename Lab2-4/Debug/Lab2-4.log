@@ -1,10 +1,2 @@
-﻿  Vector.c
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(6,27): warning C4013: 'malloc' undefined; assuming extern returning int
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(6,46): warning C4047: '=': 'void **' differs in levels of indirection from 'int'
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(11,6): warning C4013: 'free' undefined; assuming extern returning int
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(16,28): warning C4013: 'realloc' undefined; assuming extern returning int
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(16,76): warning C4047: '=': 'void **' differs in levels of indirection from 'int'
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(26,9): warning C4013: 'printf' undefined; assuming extern returning int
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(33,76): warning C4047: '=': 'void **' differs in levels of indirection from 'int'
-C:\Users\Armand\source\repos\Lab01\Lab2-4\Vector.c(52,11): warning C4098: 'vector_sort': 'void' function returning a value
+﻿  main.c
   Lab2-4.vcxproj -> C:\Users\Armand\source\repos\Lab01\Debug\Lab2-4.exe

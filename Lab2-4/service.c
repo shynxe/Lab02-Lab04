@@ -1,5 +1,7 @@
 #include <malloc.h>
 #include <ctype.h>
+#include <stdio.h>
+#include <string.h>
 #include "service.h"
 
 void service_init(Service* service, RepoIngrediente* repo)

@@ -24,7 +24,7 @@ int main() {
 	free(console);
 	free(service);
 	free(repo);
-
+	
 	int a = _CrtDumpMemoryLeaks();
 	printf("Memory leaks: %d\n", a);
 	return 0;
