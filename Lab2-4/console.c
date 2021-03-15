@@ -28,6 +28,8 @@ void run_console(Console* console) {
 		print_menu();
 		scanf("%d", &input);
 		switch (input) {
+		case 0:
+			break;
 		case 1:
 		{
 			// 1. Adauga ingredient
