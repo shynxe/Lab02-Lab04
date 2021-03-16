@@ -9,7 +9,7 @@
 #include "ingrediente_repo.h"
 
 int main() {
-	//tests_run();
+	tests_run();
 
 	Service* service = malloc(sizeof(Service));
 	RepoIngrediente* repo = malloc(sizeof(RepoIngrediente));
@@ -24,7 +24,7 @@ int main() {
 	free(console);
 	free(service);
 	free(repo);
-	
+
 	int a = _CrtDumpMemoryLeaks();
 	printf("Memory leaks: %d\n", a);
 	return 0;

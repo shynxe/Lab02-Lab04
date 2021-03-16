@@ -2,20 +2,26 @@
 #include <malloc.h>
 #include <stdio.h>
 
+
 void vector_init(Vector* vector)
 {
 	vector->size = 0;
-	vector->elements = malloc(1 * sizeof(void*));
+	vector->capacity = MAX_CAP;
+	vector->elements = malloc(MAX_CAP * sizeof(void*));
 }
 
 void vector_destroy(Vector* vector) {
 	vector->size = 0;
+	vector->capacity = 0;
 	free(vector->elements);
 }
 
 void vector_pushback(Vector* vector, void* element) {
 	vector->size++;
-	vector->elements = realloc(vector->elements, vector->size * sizeof(void*));
+	if (vector->size > vector->capacity) {
+		vector->elements = realloc(vector->elements, vector->capacity * sizeof(void*));
+	}
+	//vector->elements = realloc(vector->elements, vector->size * sizeof(void*));
 	vector->elements[vector->size-1] = element;
 }
 
@@ -32,7 +38,6 @@ void vector_remove(Vector* vector, int poz) {
 	for (i = poz; i < vector->size; i++)
 		vector->elements[i] = vector->elements[i + 1];
 	vector->size--;
-	vector->elements = realloc(vector->elements, vector->size * sizeof(void*));
 }
 
 int vector_swap(Vector* vector, int poz1, int poz2)
