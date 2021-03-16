@@ -1,7 +1,7 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
 
-#define MAX_CAP 20
+#define INITIAL_CAP 2
 
 typedef struct{
 	void** elements;

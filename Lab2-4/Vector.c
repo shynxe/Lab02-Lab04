@@ -6,8 +6,8 @@
 void vector_init(Vector* vector)
 {
 	vector->size = 0;
-	vector->capacity = MAX_CAP;
-	vector->elements = malloc(MAX_CAP * sizeof(void*));
+	vector->capacity = INITIAL_CAP;
+	vector->elements = malloc(vector->capacity * sizeof(void*));
 }
 
 void vector_destroy(Vector* vector) {
@@ -19,6 +19,7 @@ void vector_destroy(Vector* vector) {
 void vector_pushback(Vector* vector, void* element) {
 	vector->size++;
 	if (vector->size > vector->capacity) {
+		vector->capacity = vector->capacity * 2;
 		vector->elements = realloc(vector->elements, vector->capacity * sizeof(void*));
 	}
 	//vector->elements = realloc(vector->elements, vector->size * sizeof(void*));

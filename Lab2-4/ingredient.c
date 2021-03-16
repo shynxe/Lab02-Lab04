@@ -1,6 +1,6 @@
 #include <malloc.h>
 #include "ingredient.h"
-
+#include <string.h>
 
 void ingredient_init(Ingredient* ingredient, char* nume, char* producator, unsigned int cantitate) {
 	ingredient->nume = (char*)malloc(sizeof(char) * (strlen(nume) + 1));

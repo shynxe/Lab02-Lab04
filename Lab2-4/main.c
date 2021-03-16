@@ -10,7 +10,7 @@
 
 int main() {
 	tests_run();
-
+	
 	Service* service = malloc(sizeof(Service));
 	RepoIngrediente* repo = malloc(sizeof(RepoIngrediente));
 	service_init(service, repo);
@@ -27,5 +27,6 @@ int main() {
 
 	int a = _CrtDumpMemoryLeaks();
 	printf("Memory leaks: %d\n", a);
+
 	return 0;
 }
